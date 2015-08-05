@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.min.js'></script>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.0/lodash.min.js'></script>
+   <script src='solver.js'></script>
+   <style>
+    .cell{
+      float:left;
+    }
+    .cell:nth-child(9n+1){
+      clear:left;
+    }
+    .clearfix:before, .clearfix:after { content: "020"; display: block; height: 0; overflow: hidden; }
+
+.clearfix:after { clear: both; }
+
+.clearfix { zoom: 1; }
+   </style>
+   <head>
+      <title>Title of the document</title>
+   </head>
+   <body ng-app="myApp">
+      <div id="sudoku" ng-controller="SudokuController">
+          <div ng-repeat="cell in board" class="cell">
+             <input ng-model="cell.value" type="text" style="width:15px;" ng-style='{"border-color":cell.color}' />
+
+          </div>
+
+      <div class="clearfix"></div>
+    <input type=button ng-click="iterate()" style="clear:both" value="Iterate"/>
+   </div>
+   </body>
+</html>
